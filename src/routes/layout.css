@@ -1,2 +1,15 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
+
+:root {
+	font-family: Inter, sans-serif;
+	font-feature-settings:
+		'liga' 1,
+		'calt' 1,
+		'cv05' 1;
+}
+@supports (font-variation-settings: normal) {
+	:root {
+		font-family: InterVariable, sans-serif;
+	}
+}
