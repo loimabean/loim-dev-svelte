@@ -1,7 +1,10 @@
 {
 	"name": "loim-dev-svelte",
+	"author": "Liam Rust",
+	"license": "AGPL-3.0-or-later",
+	"repository": "https://github.com/loimabean/loim-dev-svelte",
+	"version": "0.1.0",
 	"private": true,
-	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",

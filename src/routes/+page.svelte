@@ -15,5 +15,10 @@
 	<ul class="mt-8">
 		<li>bluesky: <a target="_blank" href="https://bsky.app/profile/loim.dev">@loim.dev</a></li>
 		<li>email: <a href="mailto:hi@loim.dev">hi@loim.dev</a></li>
+		<li>
+			website source: <a target="_blank" href="https://github.com/loimabean/loim-dev-svelte">
+				https://github.com/loimabean/loim-dev-svelte
+			</a>
+		</li>
 	</ul>
 </div>

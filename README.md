@@ -1,42 +1,34 @@
-# sv
+# loim-dev-svelte
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+hello! this is my personal website :)
 
-## Creating a project
+## develop for yourself
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```sh
-# create a new project
-npx sv create my-app
-```
-
-To recreate this project with the same configuration:
+this is a fairly standard node project --- clone, install, and run:
 
 ```sh
-# recreate this project
-pnpm dlx sv@0.12.7 create --template minimal --types ts --add prettier eslint tailwindcss="plugins:forms" sveltekit-adapter="adapter:node" --install pnpm loim-dev-svelte
+git clone git@github.com:loimabean/loim-dev-svelte.git
+cd loim-dev-svelte
+pnpm i
+pnpm dev
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+and then if you'd like to build for release:
 
 ```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+pnpm build
 ```
 
-## Building
+## build as a container
 
-To create a production version of your app:
+there is an included `Containerfile` for building the site as a container for deployment! that's how i have deployed it myself. you can build _that_ with:
 
 ```sh
-npm run build
+podman build
 ```
 
-You can preview the production build with `npm run preview`.
+or, if you are using Docker
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```sh
+docker build
+```
