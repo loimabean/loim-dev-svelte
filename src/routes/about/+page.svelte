@@ -27,7 +27,7 @@
 		<img
 			src={me}
 			alt="A white androgynous person in a motorized wheelchair. They have medium-long, dirty blonde hair, round gold glasses, and star-shaped earrings. They are smiling."
-			class="mb-2 h-192 rounded-xl"
+			class="mb-2 w-lg rounded-xl"
 		/>
 		<figcaption class="italic">that's me!</figcaption>
 	</figure>
