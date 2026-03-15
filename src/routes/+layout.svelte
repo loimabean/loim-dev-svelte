@@ -3,10 +3,20 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import logo from '$lib/assets/loim-logo.webp';
 	import { resolve } from '$app/paths';
-	import type { ResolvedPathname } from '$app/types';
 	import { page } from '$app/state';
-	import { crossfade } from 'svelte/transition';
-	import { quintOut } from 'svelte/easing';
+	import { crossfade, fly } from 'svelte/transition';
+	import { quintOut, cubicIn, cubicOut } from 'svelte/easing';
+	import { afterNavigate, disableScrollHandling } from '$app/navigation';
+	import type { ResolvedPathname } from '$app/types';
+
+	/* To prevent quirky page jumping during transition */
+	const FADE_OUT_MS = 150;
+	afterNavigate(() => {
+		disableScrollHandling();
+		setTimeout(() => {
+			window.scrollTo({ top: 0, behavior: 'auto' });
+		}, FADE_OUT_MS);
+	});
 
 	const [send, receive] = crossfade({
 		duration: 300,
@@ -71,8 +81,15 @@
 	<meta property="og:image" content={logo} />
 	<meta property="twitter:card" content="summary" />
 </svelte:head>
-<div
-	class="flex min-h-dvh min-w-full items-center justify-center px-6 pt-6 pb-[calc(6rem+env(safe-area-inset-bottom))]"
->
-	{@render children()}
-</div>
+
+<main class="grid min-w-full items-start">
+	{#key page.url.pathname}
+		<div
+			class="col-start-1 row-start-1 flex min-h-dvh w-full items-center justify-center px-6 pt-6 pb-[calc(6rem+env(safe-area-inset-bottom))]"
+			in:fly={{ y: 20, duration: 300, delay: FADE_OUT_MS, easing: cubicOut }}
+			out:fly={{ y: 20, duration: FADE_OUT_MS, easing: cubicIn }}
+		>
+			{@render children()}
+		</div>
+	{/key}
+</main>

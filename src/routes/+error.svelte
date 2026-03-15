@@ -3,6 +3,6 @@
 </script>
 
 <div>
-	<h1 class="text-4xl mb-4">you got an error! {page.error?.message}</h1>
+	<h1 class="mb-4 text-4xl">you got an error! {page.error?.message}</h1>
 	<p>if you didn't expect that, let me know...</p>
 </div>
