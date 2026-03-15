@@ -4,9 +4,11 @@
 
 <svelte:head>
 	<title>hi, i'm liam!</title>
+	<meta property="og:title" content="hi, i'm liam!" />
+	<meta property="og:description" content="this will be my corner of the internet Soon™" />
 </svelte:head>
 
-<div class="flex h-screen w-screen flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center">
 	<h1 class="text-4xl font-bold">under construction</h1>
 	<h2 class="text-2xl">hi, i'm liam!</h2>
 	<img src={favicon} alt="an orange circle with a smiling hexagon-shaped face" class="my-4 h-56" />
