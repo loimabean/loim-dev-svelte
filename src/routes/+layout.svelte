@@ -11,27 +11,30 @@
 
 	/* To prevent quirky page jumping during transition */
 	const FADE_OUT_MS = 150;
-	afterNavigate(() => {
-		disableScrollHandling();
-		setTimeout(() => {
-			window.scrollTo({ top: 0, behavior: 'auto' });
-		}, FADE_OUT_MS);
+	const FADE_IN_MS = 300;
+	afterNavigate(({ type }) => {
+		if (type !== 'popstate' && type !== 'enter') {
+			disableScrollHandling();
+			setTimeout(() => {
+				window.scrollTo({ top: 0, behavior: 'auto' });
+			}, FADE_OUT_MS);
+		}
 	});
 
 	const [send, receive] = crossfade({
-		duration: 300,
+		duration: FADE_OUT_MS + FADE_IN_MS,
 		easing: quintOut
 	});
 
-	let { children } = $props();
+	const { children } = $props();
 </script>
 
 {#snippet navlink(link: ResolvedPathname, label: string)}
-	<!-- eslint-disable svelte/no-navigation-without-resolve -- we resolve before giving to the link-->
+	<!-- eslint-disable svelte/no-navigation-without-resolve -- we resolve before giving to the <a> href -->
 	<li class="relative block">
 		{#if page.url.pathname === link}
 			<div
-				class="absolute inset-0 z-0 rounded-full bg-taupe-100/70 shadow-sm dark:bg-taupe-600/70"
+				class="absolute inset-0 z-0 rounded-full bg-taupe-300/70 shadow-sm dark:bg-taupe-600/70"
 				in:receive={{ key: 'nav-pill' }}
 				out:send={{ key: 'nav-pill' }}
 			></div>
@@ -55,7 +58,7 @@
 	<nav
 		class={[
 			'pointer-events-auto mx-2 max-w-full overflow-hidden rounded-full border-2 text-base shadow-lg backdrop-blur-sm sm:text-lg',
-			'border-taupe-400/50 bg-taupe-300/50 dark:border-taupe-600/50 dark:bg-taupe-700/50'
+			'border-taupe-400/50 bg-taupe-200/50 dark:border-taupe-600/50 dark:bg-taupe-700/50'
 		]}
 	>
 		<ul
@@ -66,9 +69,6 @@
 		>
 			{@render navlink(resolve('/'), 'home')}
 			{@render navlink(resolve('/about'), 'about')}
-			{@render navlink(resolve('/blog'), 'blog')}
-			{@render navlink(resolve('/tutorials'), 'tutorials')}
-			{@render navlink(resolve('/resume'), 'resume')}
 		</ul>
 	</nav>
 </div>
@@ -86,7 +86,7 @@
 	{#key page.url.pathname}
 		<div
 			class="col-start-1 row-start-1 flex min-h-dvh w-full items-center justify-center px-6 pt-6 pb-[calc(6rem+env(safe-area-inset-bottom))]"
-			in:fly={{ y: 20, duration: 300, delay: FADE_OUT_MS, easing: cubicOut }}
+			in:fly={{ y: 20, duration: FADE_IN_MS, delay: FADE_OUT_MS, easing: cubicOut }}
 			out:fly={{ y: 20, duration: FADE_OUT_MS, easing: cubicIn }}
 		>
 			{@render children()}
