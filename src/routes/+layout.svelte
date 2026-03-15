@@ -5,19 +5,32 @@
 	import { resolve } from '$app/paths';
 	import type { ResolvedPathname } from '$app/types';
 	import { page } from '$app/state';
+	import { crossfade } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
+
+	const [send, receive] = crossfade({
+		duration: 300,
+		easing: quintOut
+	});
 
 	let { children } = $props();
 </script>
 
 {#snippet navlink(link: ResolvedPathname, label: string)}
 	<!-- eslint-disable svelte/no-navigation-without-resolve -- we resolve before giving to the link-->
-	<li>
+	<li class="relative block">
+		{#if page.url.pathname === link}
+			<div
+				class="absolute inset-0 z-0 rounded-full bg-taupe-100/70 shadow-sm dark:bg-taupe-600/70"
+				in:receive={{ key: 'nav-pill' }}
+				out:send={{ key: 'nav-pill' }}
+			></div>
+		{/if}
 		<a
 			class={[
-				'block rounded-md border-2 border-transparent px-3 py-2 whitespace-nowrap transition-all sm:px-4',
-				'hover:border-taupe-400/50 hover:bg-taupe-100/50 hover:shadow-md active:bg-taupe-50/50 active:shadow-none',
-				'dark:hover:border-taupe-600/50 dark:hover:bg-taupe-700/50 dark:active:bg-taupe-600/50',
-				page.url.pathname === link && 'font-bold text-amber-700 underline dark:text-amber-400'
+				'relative z-10 block rounded-full px-3 py-2 whitespace-nowrap transition-all sm:px-4',
+				'hover:text-amber-800 focus:text-amber-800 active:font-extrabold dark:hover:text-amber-300 dark:focus:text-amber-300',
+				page.url.pathname === link && 'font-bold text-amber-700 dark:text-amber-400'
 			]}
 			href={link}
 		>
@@ -25,15 +38,21 @@
 		</a>
 	</li>
 {/snippet}
-<div class="pointer-events-none fixed right-0 bottom-6 left-0 z-50 flex justify-center">
+
+<div
+	class="pointer-events-none fixed right-0 bottom-[calc(1.5rem+env(safe-area-inset-bottom))] left-0 z-50 flex justify-center"
+>
 	<nav
 		class={[
-			'pointer-events-auto max-w-full overflow-hidden rounded-full border-2 text-base shadow-lg backdrop-blur-sm sm:text-lg',
+			'pointer-events-auto mx-2 max-w-full overflow-hidden rounded-full border-2 text-base shadow-lg backdrop-blur-sm sm:text-lg',
 			'border-taupe-400/50 bg-taupe-300/50 dark:border-taupe-600/50 dark:bg-taupe-700/50'
 		]}
 	>
 		<ul
-			class="flex flex-row items-center gap-1 overflow-x-auto px-2 py-2 [-ms-overflow-style:none] [scrollbar-width:none] sm:px-4 [&::-webkit-scrollbar]:hidden"
+			class={[
+				'flex flex-row items-center gap-1 overflow-x-auto px-2 py-2',
+				'[-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden'
+			]}
 		>
 			{@render navlink(resolve('/'), 'home')}
 			{@render navlink(resolve('/about'), 'about')}
@@ -52,6 +71,8 @@
 	<meta property="og:image" content={logo} />
 	<meta property="twitter:card" content="summary" />
 </svelte:head>
-<div class="flex min-h-dvh min-w-full items-center justify-center px-6 pt-6 pb-32">
+<div
+	class="flex min-h-dvh min-w-full items-center justify-center px-6 pt-6 pb-[calc(6rem+env(safe-area-inset-bottom))]"
+>
 	{@render children()}
 </div>
