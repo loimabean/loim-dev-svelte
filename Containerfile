@@ -1,4 +1,5 @@
-FROM node:22-alpine AS builder
+FROM node:25-slim AS builder
+RUN npm install -g --force corepack
 RUN corepack enable pnpm
 WORKDIR /app
 
@@ -10,7 +11,8 @@ RUN pnpm run build
 
 
 
-FROM node:22-alpine AS runner
+FROM node:25-slim AS runner
+RUN npm install -g --force corepack
 RUN corepack enable pnpm
 WORKDIR /app
 
