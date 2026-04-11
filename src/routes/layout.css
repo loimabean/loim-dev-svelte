@@ -13,3 +13,14 @@
 		font-family: InterVariable, sans-serif;
 	}
 }
+
+@layer utilities {
+	html {
+		scrollbar-color: var(--color-amber-700) var(--color-taupe-300);
+	}
+	@media (prefers-color-scheme: dark) {
+		html {
+			scrollbar-color: var(--color-amber-400) var(--color-taupe-700);
+		}
+	}
+}
