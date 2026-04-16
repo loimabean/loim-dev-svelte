@@ -21,18 +21,15 @@
 		}
 	});
 
-	const [send, receive] = crossfade({
-		duration: FADE_OUT_MS + FADE_IN_MS,
-		easing: quintOut
-	});
-
+	const [send, receive] = crossfade({ duration: FADE_OUT_MS + FADE_IN_MS, easing: quintOut });
 	const { children } = $props();
 </script>
 
 {#snippet navlink(link: ResolvedPathname, label: string)}
 	<!-- eslint-disable svelte/no-navigation-without-resolve -- we resolve before giving to the <a> href -->
 	<li class="relative block">
-		{#if page.url.pathname === link}
+		<!-- TODO make this a proper shared boolean instead of calculating it twice -->
+		{#if page.url.pathname.startsWith(link) && (link !== '/' || page.url.pathname === '/')}
 			<div
 				class="absolute inset-0 z-0 rounded-full bg-taupe-300/70 shadow-sm dark:bg-taupe-600/70"
 				in:receive={{ key: 'nav-pill' }}
@@ -43,12 +40,12 @@
 			class={[
 				'relative z-10 block rounded-full px-3 py-2 whitespace-nowrap transition-all sm:px-4',
 				'hover:text-amber-800 focus:text-amber-800 active:font-extrabold dark:hover:text-amber-300 dark:focus:text-amber-300',
-				page.url.pathname === link && 'font-bold text-amber-700 dark:text-amber-400'
+				page.url.pathname.startsWith(link) &&
+					(link !== '/' || page.url.pathname === '/') &&
+					'font-bold text-amber-700 dark:text-amber-400'
 			]}
-			href={link}
+			href={link}>{label}</a
 		>
-			{label}
-		</a>
 	</li>
 {/snippet}
 
@@ -69,6 +66,7 @@
 		>
 			{@render navlink(resolve('/'), 'home')}
 			{@render navlink(resolve('/about'), 'about')}
+			{@render navlink(resolve('/blog'), 'blog')}
 		</ul>
 	</nav>
 </div>
@@ -82,7 +80,7 @@
 	<meta property="twitter:card" content="summary" />
 </svelte:head>
 
-<main class="grid min-w-full items-start">
+<div class="grid min-w-full items-start">
 	{#key page.url.pathname}
 		<div
 			class="col-start-1 row-start-1 flex min-h-dvh w-full items-center justify-center px-6 pt-6 pb-[calc(6rem+env(safe-area-inset-bottom))]"
@@ -92,4 +90,4 @@
 			{@render children()}
 		</div>
 	{/key}
-</main>
+</div>

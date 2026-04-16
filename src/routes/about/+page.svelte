@@ -16,7 +16,7 @@
 	/>
 </svelte:head>
 
-<div class="max-w-2xl">
+<main class="max-w-xl">
 	<h1 class="mb-4 text-4xl font-bold">about me</h1>
 	<p>
 		i'm <strong class="text-amber-700 dark:text-amber-400">liam rust</strong>!
@@ -31,4 +31,4 @@
 		/>
 		<figcaption class="italic">that's me!</figcaption>
 	</figure>
-</div>
+</main>

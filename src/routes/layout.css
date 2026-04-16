@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/forms';
 
 :root {
@@ -13,7 +14,6 @@
 		font-family: InterVariable, sans-serif;
 	}
 }
-
 @layer utilities {
 	html {
 		scrollbar-color: var(--color-amber-700) var(--color-taupe-300);
@@ -22,5 +22,52 @@
 		html {
 			scrollbar-color: var(--color-amber-400) var(--color-taupe-700);
 		}
+	}
+}
+
+@utility prose-taupe {
+	--tw-prose-body: var(--color-taupe-800);
+	--tw-prose-headings: var(--color-taupe-900);
+	--tw-prose-lead: var(--color-taupe-700);
+	--tw-prose-links: var(--color-taupe-900);
+	--tw-prose-bold: var(--color-taupe-900);
+	--tw-prose-counters: var(--color-taupe-600);
+	--tw-prose-bullets: var(--color-taupe-400);
+	--tw-prose-hr: var(--color-taupe-300);
+	--tw-prose-quotes: var(--color-taupe-900);
+	--tw-prose-quote-borders: var(--color-taupe-300);
+	--tw-prose-captions: var(--color-taupe-700);
+	--tw-prose-code: var(--color-taupe-900);
+	--tw-prose-pre-code: var(--color-taupe-100);
+	--tw-prose-pre-bg: var(--color-taupe-900);
+	--tw-prose-th-borders: var(--color-taupe-300);
+	--tw-prose-td-borders: var(--color-taupe-200);
+	--tw-prose-invert-body: var(--color-taupe-200);
+	--tw-prose-invert-headings: var(--color-white);
+	--tw-prose-invert-lead: var(--color-taupe-300);
+	--tw-prose-invert-links: var(--color-white);
+	--tw-prose-invert-bold: var(--color-white);
+	--tw-prose-invert-counters: var(--color-taupe-400);
+	--tw-prose-invert-bullets: var(--color-taupe-600);
+	--tw-prose-invert-hr: var(--color-taupe-700);
+	--tw-prose-invert-quotes: var(--color-taupe-100);
+	--tw-prose-invert-quote-borders: var(--color-taupe-700);
+	--tw-prose-invert-captions: var(--color-taupe-400);
+	--tw-prose-invert-code: var(--color-white);
+	--tw-prose-invert-pre-code: var(--color-taupe-300);
+	--tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
+	--tw-prose-invert-th-borders: var(--color-taupe-600);
+	--tw-prose-invert-td-borders: var(--color-taupe-700);
+}
+
+@media (prefers-color-scheme: dark) {
+	.shiki,
+	.shiki span {
+		color: var(--shiki-dark) !important;
+		background-color: var(--shiki-dark-bg) !important;
+		/* Optional, if you also want font styles */
+		font-style: var(--shiki-dark-font-style) !important;
+		font-weight: var(--shiki-dark-font-weight) !important;
+		text-decoration: var(--shiki-dark-text-decoration) !important;
 	}
 }
