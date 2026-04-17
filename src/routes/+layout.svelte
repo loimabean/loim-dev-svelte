@@ -7,11 +7,12 @@
 	import { crossfade, fly } from 'svelte/transition';
 	import { quintOut, cubicIn, cubicOut } from 'svelte/easing';
 	import { afterNavigate, disableScrollHandling } from '$app/navigation';
+	import { prefersReducedMotion } from 'svelte/motion';
 	import type { ResolvedPathname } from '$app/types';
 
 	/* To prevent quirky page jumping during transition */
-	const FADE_OUT_MS = 150;
-	const FADE_IN_MS = 300;
+	const FADE_OUT_MS = prefersReducedMotion.current ? 0 : 150;
+	const FADE_IN_MS = prefersReducedMotion.current ? 0 : 300;
 	afterNavigate(({ type }) => {
 		if (type !== 'popstate' && type !== 'enter') {
 			disableScrollHandling();
