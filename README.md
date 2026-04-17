@@ -24,11 +24,11 @@ pnpm build
 there is an included `Containerfile` for building the site as a container for deployment! that's how i have deployed it myself. you can build _that_ with:
 
 ```sh
-podman build
+podman build .
 ```
 
 or, if you are using Docker
 
 ```sh
-docker build
+docker build .
 ```
