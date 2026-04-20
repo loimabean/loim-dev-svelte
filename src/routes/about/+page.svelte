@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { differenceInYears } from 'date-fns';
-	import me from '$lib/assets/me.webp';
 
 	const birthday = new Date(2002, 10, 3);
 	const today = new Date();
@@ -24,9 +23,9 @@
 	</p>
 	<p>i'm a {age} year old graduate computer science student at Stevens Institute of Technology.</p>
 	<figure class="my-4 flex flex-col items-center">
-		<img
-			src={me}
-			alt="A white androgynous person in a motorized wheelchair. They have medium-long, dirty blonde hair, round gold glasses, and star-shaped earrings. They are smiling."
+		<enhanced:img
+			src="$lib/assets/me.jpg"
+			alt="A smiling androgynous person in a motorized wheelchair with their hand making a peace sign. They are wearing all orange. They have medium-long, dirty blonde hair, round gold glasses, and hexagon earrings."
 			class="mb-2 w-lg rounded-xl"
 		/>
 		<figcaption class="italic">that's me!</figcaption>
