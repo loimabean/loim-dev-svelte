@@ -1,5 +1,6 @@
 <script lang="ts">
 	import './layout.css';
+	import './fonts.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import logo from '$lib/assets/loim-logo.webp';
 	import { resolve } from '$app/paths';
@@ -21,8 +22,8 @@
 			}, FADE_OUT_MS);
 		}
 	});
-
 	const [send, receive] = crossfade({ duration: FADE_OUT_MS + FADE_IN_MS, easing: quintOut });
+
 	const { children } = $props();
 </script>
 
@@ -39,8 +40,7 @@
 		{/if}
 		<a
 			class={[
-				'relative z-10 block rounded-full px-3 py-2 whitespace-nowrap transition-all sm:px-4',
-				'hover:text-amber-800 focus:text-amber-800 active:font-extrabold dark:hover:text-amber-300 dark:focus:text-amber-300',
+				'relative z-10 block rounded-full px-3 py-2 whitespace-nowrap transition-all hover:text-amber-800 focus:text-amber-800 active:font-extrabold sm:px-4 dark:hover:text-amber-300 dark:focus:text-amber-300',
 				page.url.pathname.startsWith(link) &&
 					(link !== '/' || page.url.pathname === '/') &&
 					'font-bold text-amber-700 dark:text-amber-400'
@@ -54,16 +54,10 @@
 	class="pointer-events-none fixed right-0 bottom-[calc(1.5rem+env(safe-area-inset-bottom))] left-0 z-50 flex justify-center"
 >
 	<nav
-		class={[
-			'pointer-events-auto mx-2 max-w-full overflow-hidden rounded-full border-2 text-base shadow-lg backdrop-blur-sm sm:text-lg',
-			'border-taupe-400/50 bg-taupe-200/50 dark:border-taupe-600/50 dark:bg-taupe-700/50'
-		]}
+		class="pointer-events-auto mx-2 max-w-full overflow-hidden rounded-full border-2 border-taupe-400/50 bg-taupe-200/50 text-base shadow-lg backdrop-blur-sm sm:text-lg dark:border-taupe-600/50 dark:bg-taupe-700/50"
 	>
 		<ul
-			class={[
-				'flex flex-row items-center gap-1 overflow-x-auto px-2 py-2',
-				'[-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden'
-			]}
+			class="flex flex-row items-center gap-1 overflow-x-auto px-2 py-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
 		>
 			{@render navlink(resolve('/'), 'home')}
 			{@render navlink(resolve('/about'), 'about')}
@@ -73,8 +67,6 @@
 </div>
 
 <svelte:head>
-	<link rel="preconnect" href="https://rsms.me/" />
-	<link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 	<link rel="icon" href={favicon} />
 	<meta property="og:site_name" content="loim.dev" />
 	<meta property="og:type" content="website" />
