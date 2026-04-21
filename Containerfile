@@ -1,17 +1,15 @@
-FROM node:25-slim AS builder
+FROM node:25-alpine AS builder
 WORKDIR /app
 RUN npm install -g --force corepack
 RUN corepack enable pnpm
 
-COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile
-
 COPY . .
+RUN pnpm install --frozen-lockfile
 RUN pnpm run build
 
 
 
-FROM node:25-slim AS runner
+FROM node:25-alpine AS runner
 WORKDIR /app
 RUN npm install -g --force corepack
 RUN corepack enable pnpm
