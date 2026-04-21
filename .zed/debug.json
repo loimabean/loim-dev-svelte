@@ -1,0 +1,16 @@
+// Project-local debug tasks
+//
+// For more documentation on how to configure debug tasks,
+// see: https://zed.dev/docs/debugger
+[
+	{
+		"adapter": "JavaScript",
+		"label": "pnpm (JavaScript)",
+		"type": "pwa-node",
+		"request": "launch",
+		"program": "pnpm",
+		"args": ["dev"],
+		"stopOnEntry": false,
+		"cwd": "/home/liam/Projects/loim-dev-svelte"
+	}
+]
