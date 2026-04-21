@@ -14,7 +14,7 @@
 </svelte:head>
 
 <main class="max-w-xl">
-	<h1 class="mb-4 text-4xl font-bold">about</h1>
+	<h1 class="mb-4 text-4xl font-extrabold">about</h1>
 	<article class="prose text-justify hyphens-auto prose-taupe dark:prose-invert">
 		<h2>
 			i'm <strong class="text-amber-700 dark:text-amber-400">liam rust!</strong>

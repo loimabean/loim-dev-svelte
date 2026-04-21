@@ -12,7 +12,7 @@
 </svelte:head>
 
 <main class="w-full max-w-xl">
-	<h1 class="mb-8 text-4xl font-bold">blog</h1>
+	<h1 class="mb-8 text-4xl font-extrabold">blog</h1>
 	<ul class="w-full space-y-4">
 		{#each data.posts as post (post.slug)}
 			<li>

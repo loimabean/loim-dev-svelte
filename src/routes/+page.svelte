@@ -14,7 +14,7 @@
 </svelte:head>
 
 <main class="flex w-full max-w-xl flex-col items-center justify-center">
-	<h1 class="text-4xl font-bold">hi, i'm liam!</h1>
+	<h1 class="text-4xl font-extrabold">hi, i'm liam!</h1>
 	<img src={favicon} alt="an orange circle with a smiling hexagon-shaped face" class="my-4 h-56" />
 	<p>welcome to my corner of the internet!</p>
 	<p>i'm still working on this site, but feel free to look around :)</p>
