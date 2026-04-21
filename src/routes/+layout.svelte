@@ -73,6 +73,8 @@
 </div>
 
 <svelte:head>
+	<link rel="preconnect" href="https://rsms.me/" />
+	<link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 	<link rel="icon" href={favicon} />
 	<meta property="og:site_name" content="loim.dev" />
 	<meta property="og:type" content="website" />
