@@ -23,4 +23,4 @@ COPY --from=builder /app/pnpm-lock.yaml ./pnpm-lock.yaml
 RUN pnpm install --prod --frozen-lockfile
 
 EXPOSE 3000
-CMD ["node", "build/index.js"]
+CMD ["node", "build"]
