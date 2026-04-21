@@ -1,7 +1,7 @@
 FROM node:25-slim AS builder
+WORKDIR /app
 RUN npm install -g --force corepack
 RUN corepack enable pnpm
-WORKDIR /app
 
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
@@ -12,9 +12,9 @@ RUN pnpm run build
 
 
 FROM node:25-slim AS runner
+WORKDIR /app
 RUN npm install -g --force corepack
 RUN corepack enable pnpm
-WORKDIR /app
 
 COPY --from=builder /app/build ./build
 COPY --from=builder /app/package.json ./package.json
