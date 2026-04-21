@@ -16,7 +16,7 @@
 		class="mb-4 block text-amber-700 hover:text-amber-800 active:text-amber-900 dark:text-amber-400 dark:hover:text-amber-300 dark:active:text-amber-200"
 		href={resolve('/blog')}>&lt;-- back to blog</a
 	>
-	<article class="max-w-xlg mx-auto prose text-justify hyphens-auto prose-taupe dark:prose-invert">
+	<article class="prose text-justify hyphens-auto prose-taupe dark:prose-invert">
 		<header class="mb-4">
 			<h1 class="mb-2">{data.metadata.title}</h1>
 			<p class="text-md text-taupe-600 dark:text-taupe-400">{data.metadata.description}</p>
