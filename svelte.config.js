@@ -12,10 +12,7 @@ const highlighter = await createHighlighter({
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		adapter: adapter(),
-		alias: {
-			$posts: 'src/posts'
-		}
+		adapter: adapter()
 	},
 	vitePlugin: {
 		dynamicCompileOptions: ({ filename }) =>

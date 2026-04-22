@@ -6,9 +6,9 @@
 </script>
 
 <svelte:head>
-	<title>{data.metadata.title} - liam's blog</title>
-	<meta property="og:title" content={data.metadata.title} />
-	<meta property="og:description" content={data.metadata.description} />
+	<title>{data.title} - liam's blog</title>
+	<meta property="og:title" content={data.title} />
+	<meta property="og:description" content={data.description} />
 </svelte:head>
 
 <main>
@@ -18,9 +18,9 @@
 	>
 	<article class="prose text-justify hyphens-auto prose-taupe dark:prose-invert">
 		<header class="mb-4">
-			<h1 class="mb-2">{data.metadata.title}</h1>
-			<p class="text-md text-taupe-600 dark:text-taupe-400">{data.metadata.description}</p>
-			<p class="text-sm text-taupe-500">{formatDate(data.metadata.date, 'MMMM do, yyyy')}</p>
+			<h1 class="mb-2">{data.title}</h1>
+			<p class="text-md text-taupe-600 dark:text-taupe-400">{data.description}</p>
+			<p class="text-sm text-taupe-500">{formatDate(data.date, 'MMMM do, yyyy')}</p>
 		</header>
 
 		<data.content />
