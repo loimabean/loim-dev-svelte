@@ -9,6 +9,8 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
+		"build:podman": "podman build -t loim-dev-svelte .",
+		"build:docker": "docker build -t loim-dev-svelte .",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -26,6 +28,7 @@
 		"@tailwindcss/forms": "^0.5.11",
 		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.2.4",
+		"@types/better-sqlite3": "^7.6.13",
 		"@types/node": "^25.6.0",
 		"date-fns": "^4.1.0",
 		"eslint": "^10.2.1",
@@ -43,5 +46,8 @@
 		"typescript": "^6.0.3",
 		"typescript-eslint": "^8.59.0",
 		"vite": "^8.0.9"
+	},
+	"dependencies": {
+		"better-sqlite3": "^12.9.0"
 	}
 }

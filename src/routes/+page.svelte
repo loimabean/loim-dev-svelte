@@ -5,6 +5,8 @@
 	import github_white from '$lib/assets/github-white.svg';
 	import mail from '$lib/assets/mail.svg';
 	import linkedin from '$lib/assets/linkedin.svg';
+
+	let { data } = $props();
 </script>
 
 <svelte:head>
@@ -31,7 +33,7 @@
 					>
 						@loim.dev
 					</h2>
-					<p class="mt-2 text-taupe-700 dark:text-taupe-400">bluesky</p>
+					<p class="mt-2 text-taupe-500 dark:text-taupe-400">bluesky</p>
 				</div>
 			</a>
 		</li>
@@ -47,7 +49,7 @@
 					>
 						liam@loim.dev
 					</h2>
-					<p class="mt-2 text-taupe-700 dark:text-taupe-400">email</p>
+					<p class="mt-2 text-taupe-500 dark:text-taupe-400">email</p>
 				</div>
 			</a>
 		</li>
@@ -63,7 +65,7 @@
 					>
 						Liam Rust
 					</h2>
-					<p class="mt-2 text-taupe-700 dark:text-taupe-400">linkedin</p>
+					<p class="mt-2 text-taupe-500 dark:text-taupe-400">linkedin</p>
 				</div>
 			</a>
 		</li>
@@ -80,9 +82,13 @@
 					>
 						loimabean/loim-dev-svelte
 					</h2>
-					<p class="mt-2 text-taupe-700 dark:text-taupe-400">website source (on github)</p>
+					<p class="mt-2 text-taupe-500 dark:text-taupe-400">website source (on github)</p>
 				</div>
 			</a>
 		</li>
 	</ul>
+	<p class="mt-8 text-sm text-taupe-500 dark:text-taupe-400">
+		this page has been viewed {data.hits}
+		{data.hits == 1 ? 'time' : 'times'}
+	</p>
 </main>

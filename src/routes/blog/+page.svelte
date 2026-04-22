@@ -8,11 +8,16 @@
 <svelte:head>
 	<title>my blog!</title>
 	<meta property="og:title" content="my blog!" />
-	<meta property="og:description" content="come see all {data.posts.length} posts i've made" />
+	<meta
+		property="og:description"
+		content="come see all {data.posts.length} {data.posts.length == 1 ? 'post' : 'posts'} i've made"
+	/>
 </svelte:head>
 
 <main class="w-full max-w-xl">
-	<h1 class="mb-8 text-4xl font-extrabold">blog</h1>
+	<h1 class="mb-8 text-4xl font-extrabold">
+		blog <span class="text-taupe-500 dark:text-taupe-400">({data.posts.length})</span>
+	</h1>
 	<ul class="w-full space-y-4">
 		{#each data.posts as post (post.slug)}
 			<li>

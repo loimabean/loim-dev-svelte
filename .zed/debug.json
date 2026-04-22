@@ -10,6 +10,9 @@
 		"request": "launch",
 		"program": "pnpm",
 		"args": ["dev"],
+		"env": {
+			"DB_PATH": "./data"
+		},
 		"stopOnEntry": false,
 		"cwd": "/home/liam/Projects/loim-dev-svelte"
 	}

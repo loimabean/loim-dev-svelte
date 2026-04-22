@@ -78,7 +78,7 @@
 <div class="grid min-w-full items-start">
 	{#key page.url.pathname}
 		<div
-			class="col-start-1 row-start-1 flex min-h-dvh w-full items-center justify-center px-6 pt-6 pb-[calc(6rem+env(safe-area-inset-bottom))]"
+			class="col-start-1 row-start-1 flex min-h-dvh w-full items-center justify-center px-6 pt-6 pb-[calc(var(--spacing)*28+env(safe-area-inset-bottom))]"
 			in:fly={{ y: 20, duration: FADE_IN_MS, delay: FADE_OUT_MS, easing: cubicOut }}
 			out:fly={{ y: 20, duration: FADE_OUT_MS, easing: cubicIn }}
 		>
