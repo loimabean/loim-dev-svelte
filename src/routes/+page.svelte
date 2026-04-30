@@ -20,6 +20,12 @@
 	<img src={favicon} alt="an orange circle with a smiling hexagon-shaped face" class="my-4 h-56" />
 	<p class="text-center">welcome to my corner of the internet!</p>
 	<p class="text-center">i'm still working on this site, but feel free to look around :)</p>
+	<a
+		href="/projects/terrain"
+		class="text-center text-amber-700 hover:text-amber-800 active:text-amber-900 dark:text-amber-400 dark:hover:text-amber-300 dark:active:text-amber-200"
+	>
+		<span class="font-bold">new:</span> check out my webgpu procedural terrain generator! (WIP)
+	</a>
 	<ul class="mt-4 w-full space-y-4">
 		<li>
 			<a
