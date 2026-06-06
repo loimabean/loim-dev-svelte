@@ -76,7 +76,7 @@
 			'email'
 		)}
 		{@render link(
-			'https://www.linkedin.com/in/liam-rust-652802235/',
+			'https://www.linkedin.com/in/liam-rust/',
 			{ src: linkedin, alt: 'LinkedIn logo' },
 			'Liam Rust',
 			'linkedin'
