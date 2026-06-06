@@ -9,6 +9,7 @@
 	<title>my blog!</title>
 	<meta property="og:title" content="my blog!" />
 	<meta
+		name="description"
 		property="og:description"
 		content="come see all {data.posts.length} {data.posts.length == 1 ? 'post' : 'posts'} i've made"
 	/>

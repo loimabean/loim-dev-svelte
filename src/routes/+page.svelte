@@ -14,7 +14,11 @@
 <svelte:head>
 	<title>hi, i'm liam!</title>
 	<meta property="og:title" content="hi, i'm liam!" />
-	<meta property="og:description" content="welcome to my corner of the internet :)" />
+	<meta
+		name="description"
+		property="og:description"
+		content="welcome to my corner of the internet :)"
+	/>
 </svelte:head>
 
 <main class="flex w-full max-w-xl flex-col items-center justify-center">

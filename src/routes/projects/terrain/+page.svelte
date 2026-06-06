@@ -13,6 +13,7 @@
 	<title>terrain generator - liam's projects</title>
 	<meta property="og:title" content="terrain generator - liam's projects" />
 	<meta
+		name="description"
 		property="og:description"
 		content="a procedural terrain generator built using rust and wgpu, compiled to webassembly!"
 	/>

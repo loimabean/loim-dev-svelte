@@ -4,7 +4,7 @@
 
 <svelte:head>
 	<meta property="og:title" content="you got an error!" />
-	<meta property="og:description" content="uh oh" />
+	<meta name="description" property="og:description" content="uh oh" />
 </svelte:head>
 
 <main class="flex flex-col items-center">

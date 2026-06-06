@@ -8,7 +8,7 @@
 <svelte:head>
 	<title>{data.title} - liam's blog</title>
 	<meta property="og:title" content={data.title} />
-	<meta property="og:description" content={data.description} />
+	<meta name="description" property="og:description" content={data.description} />
 </svelte:head>
 
 <main>

@@ -8,6 +8,7 @@
 	<title>about me</title>
 	<meta property="og:title" content="about" />
 	<meta
+		name="description"
 		property="og:description"
 		content="information about me, liam! (the creator of this site)"
 	/>
