@@ -1,4 +1,4 @@
-FROM node:25-alpine AS builder
+FROM node:26-alpine AS builder
 WORKDIR /app
 RUN mkdir /data
 RUN npm install -g --force corepack
@@ -10,7 +10,7 @@ RUN pnpm run build
 
 
 
-FROM node:25-alpine AS runner
+FROM node:26-alpine AS runner
 WORKDIR /app
 RUN mkdir /data
 RUN npm install -g --force corepack
