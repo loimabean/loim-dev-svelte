@@ -21,7 +21,8 @@
 			<span class="text-taupe-500 dark:text-taupe-400">(he/she/they)</span>
 		</h2>
 		<p>
-			i'm a {data.age} year old graduate computer science student at Stevens Institute of Technology.
+			i'm a {data.age} year old software engineer who recently graduated from Stevens Institute of Technology
+			with a master's degree in computer science.
 		</p>
 		<figure class="flex flex-col items-center">
 			<enhanced:img
@@ -40,6 +41,13 @@
 			powerful, yet accessible things. (when wielded correctly…)
 		</p>
 		<p>
+			i find myself doing a lot of different kinds of software work, such as <b>web development</b>
+			(see: this website), lower-level <b>systems programming</b>,
+			<b>systems administration / DevOps</b>
+			things like containerization and configuration, and <b>UI/UX design work</b>. i'm sure i'll do
+			even more as time goes on — i'm a bit of a jack of all trades!
+		</p>
+		<p>
 			i first started programming in high school, after being glued to my computer since i was a
 			kid. like many people, i got my start with modding games like minecraft and kerbal space
 			program. i still do a lot of minecraft — the server this website is running on has a few
@@ -53,12 +61,6 @@
 			<span role="note" class="text-taupe-500 dark:text-taupe-400"
 				>(no, this site is not written in Rust)</span
 			>
-		</p>
-		<p>
-			i find myself doing a lot of different kinds of software work, such as web development (see:
-			this website), lower-level systems programming, systems administration / DevOps things like
-			containerization and configuration, and user interface design work. i'm sure i'll do even more
-			as time goes on — i'm a bit of a jack of all trades!
 		</p>
 		<h3>open source software</h3>
 		<p>
@@ -79,15 +81,46 @@
 			i'm a singer! i've been singing since longer than i can remember. i'm a very musical person,
 			almost always with a song stuck in my head.
 		</p>
-		<p>
+		<p class="mb-0">
 			current favorite artists include <a href="https://jamies.page/">jamie paige</a>,
 			<a href="https://flavorfoley.com/">flavor foley</a>, and
-			<a href="https://goodkidofficial.com/">good kid</a>, the last of which i just saw on tour as
-			of writing this! current favorite songs from each of those artists respectively are
-			<a href="https://jamiepaige.bandcamp.com/track/clouddrop">clouddrop</a>,
-			<a href="https://flavorfoley.bandcamp.com/track/human">human</a>, and
-			<a href="https://goodkid.bandcamp.com/track/cicada-2">cicada</a>.
+			<a href="https://goodkidofficial.com/">good kid</a>, the last two of which i was extremely
+			lucky to have seen live this year. my favorite songs from each of those artists respectively
+			are:
 		</p>
+		<div class="grid grid-cols-3">
+			<a href="https://jamiepaige.bandcamp.com/track/clouddrop" class="flex flex-col text-center">
+				<!-- https://github.com/sveltejs/kit/issues/11017 -->
+				<div class="not-prose m-2 mt-4">
+					<enhanced:img
+						src="$lib/assets/clouddrop.jpg"
+						alt="Album cover for Clouddrop"
+						class="rounded-lg"
+					/>
+				</div>
+				clouddrop
+			</a>
+			<a href="https://flavorfoley.bandcamp.com/track/human" class="flex flex-col text-center">
+				<div class="not-prose m-2 mt-4">
+					<enhanced:img
+						src="$lib/assets/human.jpg"
+						alt="Album cover for Human"
+						class="rounded-lg"
+					/>
+				</div>
+				human
+			</a>
+			<a href="https://goodkid.bandcamp.com/track/cicada-2" class="flex flex-col text-center">
+				<div class="not-prose m-2 mt-4">
+					<enhanced:img
+						src="$lib/assets/cicada.jpg"
+						alt="Album cover for Cicada"
+						class="rounded-lg"
+					/>
+				</div>
+				cicada
+			</a>
+		</div>
 		<p>
 			weirdly, i only really started actively listening to music in the past couple of years. so i'm
 			sure more will be added as time goes on!
