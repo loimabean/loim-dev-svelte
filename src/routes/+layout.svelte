@@ -57,7 +57,7 @@
 		class="pointer-events-auto mx-2 max-w-full overflow-hidden rounded-full border-2 border-taupe-400/50 bg-taupe-200/50 text-base shadow-lg backdrop-blur-sm sm:text-lg dark:border-taupe-600/50 dark:bg-taupe-700/50"
 	>
 		<ul
-			class="flex flex-row items-center gap-1 overflow-x-auto px-2 py-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+			class="flex flex-row items-center gap-1 overflow-x-auto px-2 py-2 scrollbar-none"
 		>
 			{@render navlink(resolve('/'), 'home')}
 			{@render navlink(resolve('/about'), 'about')}

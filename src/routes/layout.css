@@ -2,17 +2,6 @@
 @plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/forms';
 
-@layer utilities {
-	html {
-		scrollbar-color: var(--color-amber-700) var(--color-taupe-300);
-	}
-	@media (prefers-color-scheme: dark) {
-		html {
-			scrollbar-color: var(--color-amber-400) var(--color-taupe-700);
-		}
-	}
-}
-
 @utility prose-taupe {
 	--tw-prose-body: var(--color-taupe-800);
 	--tw-prose-headings: var(--color-taupe-900);
