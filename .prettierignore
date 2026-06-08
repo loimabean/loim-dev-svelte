@@ -7,3 +7,6 @@ bun.lockb
 
 # Miscellaneous
 /static/
+
+# terrain gen generated files
+src/routes/projects/terrain/terrain_gen*

@@ -61,6 +61,7 @@
 		>
 			{@render navlink(resolve('/'), 'home')}
 			{@render navlink(resolve('/about'), 'about')}
+			{@render navlink(resolve('/projects'), 'projects')}
 			{@render navlink(resolve('/blog'), 'blog')}
 		</ul>
 	</nav>

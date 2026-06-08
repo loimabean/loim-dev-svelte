@@ -30,7 +30,7 @@
 		href={resolve('/projects/terrain')}
 		class="text-center text-amber-700 hover:text-amber-800 active:text-amber-900 dark:text-amber-400 dark:hover:text-amber-300 dark:active:text-amber-200"
 	>
-		<span class="font-bold">new:</span> check out my webgpu procedural terrain generator! (WIP)
+		<span class="font-bold">new:</span> check out my webgpu procedural terrain generator!
 	</a>
 	<ul class="mt-4 w-full space-y-4">
 		{#snippet link(

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import init from './cs677_final_project.js';
+	import init from './terrain_gen.js';
 	import { browser } from '$app/environment';
 
 	if (browser) {
@@ -21,6 +21,7 @@
 
 <main class="h-full w-full flex flex-col items-center">
 	<canvas class="h-full w-full rounded-xl" id="canvas"></canvas>
+	<!-- TODO: fix breakage when user leaves and reenters page in SPA -->
 	<p role="note" class="mt-4 text-taupe-500 dark:text-taupe-400 italic">
 		if the above area is blank, try reloading!
 	</p>
@@ -30,7 +31,7 @@
 			<p>
 				This is a procedural terrain generator I built for <a
 					href="https://web.stevens.edu/catalog/archive/2024-2025/en/catalog/academic-catalog/courses/cs-computer-science/600/cs-677.html"
-					>CS 677: Parallel Programming for Many Core Processors</a
+					>CS 677: Parallel Programming for Many-Core Processors</a
 				>. The course was mainly focused on CUDA, but i chose to do a project using wpgu for a
 				couple of reasons:
 			</p>
@@ -54,8 +55,9 @@
 				> which was the inspiration for this project.
 			</p>
 			<p>
-				The source code to this project will be available soon! I haven't yet gotten around to
-				polishing it up for release... yell at me if it isn't released in a week.
+				<a href="https://github.com/loimabean/terrain-gen"
+					>You can view the source code on GitHub here!</a
+				>
 			</p>
 		</div>
 	</article>
