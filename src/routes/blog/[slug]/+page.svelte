@@ -12,10 +12,7 @@
 </svelte:head>
 
 <main>
-	<a
-		class="mb-4 block text-amber-700 hover:text-amber-800 active:text-amber-900 dark:text-amber-400 dark:hover:text-amber-300 dark:active:text-amber-200"
-		href={resolve('/blog')}>&lt;-- back to blog</a
-	>
+	<a class="mb-4 block link" href={resolve('/blog')}>&lt;-- back to blog</a>
 	<article class="prose text-justify hyphens-auto prose-taupe dark:prose-invert">
 		<header class="mb-4">
 			<h1 class="mb-2">{data.title}</h1>

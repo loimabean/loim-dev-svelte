@@ -29,9 +29,10 @@
 
 {#snippet navlink(link: ResolvedPathname, label: string)}
 	<!-- eslint-disable svelte/no-navigation-without-resolve -- we resolve before giving to the <a> href -->
+	{@const isActive =
+		page.url.pathname.startsWith(link) && (link !== '/' || page.url.pathname === '/')}
 	<li class="relative block">
-		<!-- TODO make this a proper shared boolean instead of calculating it twice -->
-		{#if page.url.pathname.startsWith(link) && (link !== '/' || page.url.pathname === '/')}
+		{#if isActive}
 			<div
 				class="absolute inset-0 z-0 rounded-full bg-taupe-300/70 shadow-sm dark:bg-taupe-600/70"
 				in:receive={{ key: 'nav-pill' }}
@@ -41,9 +42,7 @@
 		<a
 			class={[
 				'relative z-10 block rounded-full px-3 py-2 whitespace-nowrap transition-all hover:text-amber-800 focus:text-amber-800 active:font-extrabold sm:px-4 dark:hover:text-amber-300 dark:focus:text-amber-300',
-				page.url.pathname.startsWith(link) &&
-					(link !== '/' || page.url.pathname === '/') &&
-					'font-bold text-amber-700 dark:text-amber-400'
+				isActive && 'font-bold text-amber-700 dark:text-amber-400'
 			]}
 			href={link}>{label}</a
 		>
@@ -56,9 +55,7 @@
 	<nav
 		class="pointer-events-auto mx-2 max-w-full overflow-hidden rounded-full border-2 border-taupe-400/50 bg-taupe-200/50 text-base shadow-lg backdrop-blur-sm sm:text-lg dark:border-taupe-600/50 dark:bg-taupe-700/50"
 	>
-		<ul
-			class="flex flex-row items-center gap-1 overflow-x-auto px-2 py-2 scrollbar-none"
-		>
+		<ul class="flex flex-row items-center gap-1 overflow-x-auto px-2 py-2 scrollbar-none">
 			{@render navlink(resolve('/'), 'home')}
 			{@render navlink(resolve('/about'), 'about')}
 			{@render navlink(resolve('/projects'), 'projects')}

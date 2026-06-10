@@ -22,16 +22,11 @@
 	<ul class="w-full space-y-4">
 		{#each data.posts as post (post.slug)}
 			<li>
-				<a
-					href={resolve(`/blog/${post.slug}`)}
-					class="group inline-block w-full rounded-2xl border-3 border-taupe-200 p-4 transition-all hover:bg-taupe-50 hover:shadow active:bg-taupe-50 active:shadow dark:border-taupe-800 hover:dark:bg-taupe-800 active:dark:bg-taupe-800"
-				>
+				<a href={resolve(`/blog/${post.slug}`)} class="group card-link inline-block">
 					<p class="mb-2 text-sm text-taupe-500">
 						{formatDate(post.date, 'MMMM do, yyyy')}
 					</p>
-					<h2
-						class="text-2xl font-semibold transition-all group-hover:text-amber-700 group-active:text-amber-700 active:font-bold dark:group-hover:text-amber-400 dark:group-active:text-amber-400"
-					>
+					<h2 class="card-heading">
 						{post.title}
 					</h2>
 					<p class="mt-4 line-clamp-2 text-taupe-700 dark:text-taupe-400">

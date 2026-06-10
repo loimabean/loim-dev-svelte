@@ -11,13 +11,7 @@ export type PostWithContent = {
 	content: Component;
 };
 
-export type Post = {
-	title: string;
-	slug: string;
-	description: string;
-	date: Date;
-	published: boolean;
-};
+export type Post = Omit<PostWithContent, 'content'>;
 
 type PostFile = {
 	default: Component;
@@ -31,19 +25,24 @@ type PostFileMetadata = {
 	published: boolean;
 };
 
-function processPost(file: PostFile, slug: string): PostWithContent {
-	return {
+function processPost(file: PostFile, slug: string, withContent: true): PostWithContent;
+function processPost(file: PostFile, slug: string, withContent: false): Post;
+function processPost(file: PostFile, slug: string, withContent: boolean): Post | PostWithContent {
+	const post: Post = {
 		...file.metadata,
 		date: parseISO(file.metadata.date),
-		slug: slug,
-		content: file.default
+		slug: slug
 	};
+	if (withContent) {
+		(post as PostWithContent).content = file.default;
+	}
+	return post;
 }
 
 export async function getPost(slug: string): Promise<PostWithContent> {
 	const post: PostFile = await import(`$lib/posts/${slug}.md`);
 
-	return processPost(post, slug);
+	return processPost(post, slug, true);
 }
 
 export async function getPosts(): Promise<Post[]> {
@@ -54,15 +53,9 @@ export async function getPosts(): Promise<Post[]> {
 	for (const [filePath, file] of Object.entries(paths)) {
 		const slug = path.parse(filePath).name;
 		if (file && typeof file === 'object' && 'metadata' in file && slug) {
-			const post = processPost(file, slug);
+			const post = processPost(file, slug, false);
 			if (post.published) {
-				posts.push({
-					title: post.title,
-					slug: post.slug,
-					description: post.description,
-					date: post.date,
-					published: post.published
-				});
+				posts.push(post);
 			}
 		}
 	}

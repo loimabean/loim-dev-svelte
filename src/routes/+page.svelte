@@ -26,10 +26,7 @@
 	<img src={favicon} alt="an orange circle with a smiling hexagon-shaped face" class="my-4 h-56" />
 	<p class="text-center">welcome to my corner of the internet!</p>
 	<p class="text-center">i'm still working on this site, but feel free to look around :)</p>
-	<a
-		href={resolve('/projects/terrain')}
-		class="text-center text-amber-700 hover:text-amber-800 active:text-amber-900 dark:text-amber-400 dark:hover:text-amber-300 dark:active:text-amber-200"
-	>
+	<a href={resolve('/projects/terrain')} class="text-center link">
 		<span class="font-bold">new:</span> check out my webgpu procedural terrain generator!
 	</a>
 	<ul class="mt-4 w-full space-y-4">
@@ -41,10 +38,7 @@
 		)}
 			<li>
 				<!-- eslint-disable svelte/no-navigation-without-resolve -- these are external links -->
-				<a
-					{href}
-					class="group flex w-full items-center gap-4 rounded-2xl border-3 border-taupe-200 p-4 transition-all hover:bg-taupe-50 hover:shadow active:bg-taupe-50 active:shadow dark:border-taupe-800 hover:dark:bg-taupe-800 active:dark:bg-taupe-800"
-				>
+				<a {href} class="group card-link flex items-center gap-4">
 					{#if Array.isArray(icon)}
 						<img src={icon[0].src} alt={icon[0].alt} class="hidden w-12 dark:block" />
 						<img src={icon[1].src} alt={icon[1].alt} class="block w-12 dark:hidden" />
@@ -52,9 +46,7 @@
 						<img src={icon.src} alt={icon.alt} class="w-12" />
 					{/if}
 					<div>
-						<h2
-							class="text-2xl font-semibold transition-all group-hover:text-amber-700 group-active:text-amber-700 active:font-bold dark:group-hover:text-amber-400 dark:group-active:text-amber-400"
-						>
+						<h2 class="card-heading">
 							{title}
 						</h2>
 						<p class="mt-2 text-taupe-500 dark:text-taupe-400">{subtitle}</p>
