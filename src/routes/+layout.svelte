@@ -60,6 +60,7 @@
 			{@render navlink(resolve('/about'), 'about')}
 			{@render navlink(resolve('/projects'), 'projects')}
 			{@render navlink(resolve('/blog'), 'blog')}
+			{@render navlink(resolve('/resume'), 'resume')}
 		</ul>
 	</nav>
 </div>
