@@ -1,5 +1,6 @@
 <script lang="ts">
 	import init from './terrain_gen.js';
+	import Metadata from '$lib/Metadata.svelte';
 	import { browser } from '$app/environment';
 
 	if (browser) {
@@ -9,15 +10,10 @@
 	}
 </script>
 
-<svelte:head>
-	<title>terrain generator - liam's projects</title>
-	<meta property="og:title" content="terrain generator - liam's projects" />
-	<meta
-		name="description"
-		property="og:description"
-		content="a procedural terrain generator built using rust and wgpu, compiled to webassembly!"
-	/>
-</svelte:head>
+<Metadata
+	title="terrain generator - liam's projects"
+	description="a procedural terrain generator built using rust and wgpu, compiled to webassembly!"
+/>
 
 <main class="h-full w-full flex flex-col items-center">
 	<canvas class="h-full w-full rounded-xl" id="canvas"></canvas>

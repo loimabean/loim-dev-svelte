@@ -7,25 +7,17 @@
 	import github_white from '$lib/assets/github-white.svg';
 	import git from '$lib/assets/git.svg';
 	import { resolve } from '$app/paths';
+	import Metadata from '$lib/Metadata.svelte';
 
 	let { data } = $props();
 </script>
 
-<svelte:head>
-	<title>hi, i'm liam!</title>
-	<meta property="og:title" content="hi, i'm liam!" />
-	<meta
-		name="description"
-		property="og:description"
-		content="welcome to my corner of the internet :)"
-	/>
-</svelte:head>
+<Metadata title="hi, i'm liam!" description="welcome to my corner of the internet :)" />
 
 <main class="flex w-full max-w-xl flex-col items-center justify-center">
 	<h1 class="text-4xl font-extrabold">hi, i'm liam!</h1>
 	<img src={favicon} alt="an orange circle with a smiling hexagon-shaped face" class="my-4 h-56" />
 	<p class="text-center">welcome to my corner of the internet!</p>
-	<p class="text-center">i'm still working on this site, but feel free to look around :)</p>
 	<a href={resolve('/projects/terrain')} class="text-center link">
 		<span class="font-bold">new:</span> check out my webgpu procedural terrain generator!
 	</a>

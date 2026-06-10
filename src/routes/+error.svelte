@@ -1,11 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import Metadata from '$lib/Metadata.svelte';
 </script>
 
-<svelte:head>
-	<meta property="og:title" content="you got an error!" />
-	<meta name="description" property="og:description" content="uh oh" />
-</svelte:head>
+<Metadata title="you got an error" description="uh oh!" />
 
 <main class="flex flex-col items-center">
 	<h1 class="mb-8 text-4xl font-extrabold text-red-800 dark:text-red-400">you got an error!</h1>

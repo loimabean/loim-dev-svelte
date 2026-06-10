@@ -1,18 +1,11 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import Metadata from '$lib/Metadata.svelte';
 
 	let { data } = $props();
 </script>
 
-<svelte:head>
-	<title>about me</title>
-	<meta property="og:title" content="about" />
-	<meta
-		name="description"
-		property="og:description"
-		content="information about me, liam! (the creator of this site)"
-	/>
-</svelte:head>
+<Metadata title="about me" description="information about me, liam! (the creator of this site)" />
 
 <main>
 	<h1 class="mb-4 text-4xl font-extrabold">about</h1>

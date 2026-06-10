@@ -1,16 +1,9 @@
 <script lang="ts">
 	import resume from '$lib/assets/resume.pdf';
+	import Metadata from '$lib/Metadata.svelte';
 </script>
 
-<svelte:head>
-	<title>my resume!</title>
-	<meta property="og:title" content="my resume!" />
-	<meta
-		name="description"
-		property="og:description"
-		content="my resume, for all the recruiters and corporations."
-	/>
-</svelte:head>
+<Metadata title="my resume" description="my resume, for all the recruiters and corporations." />
 
 <main class="flex w-full max-w-4xl flex-col gap-4">
 	<!-- eslint-disable svelte/no-navigation-without-resolve -- links to a static asset, not a route -->

@@ -1,19 +1,12 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { formatDate } from 'date-fns';
+	import Metadata from '$lib/Metadata.svelte';
 
 	let { data } = $props();
 </script>
 
-<svelte:head>
-	<title>my blog!</title>
-	<meta property="og:title" content="my blog!" />
-	<meta
-		name="description"
-		property="og:description"
-		content="come see all {data.posts.length} {data.posts.length == 1 ? 'post' : 'posts'} i've made"
-	/>
-</svelte:head>
+<Metadata title="my blog" description="come see all {data.posts.length} posts i've made" />
 
 <main class="w-full max-w-xl">
 	<h1 class="mb-8 text-4xl font-extrabold">

@@ -1,15 +1,12 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { formatDate } from 'date-fns';
+	import Metadata from '$lib/Metadata.svelte';
 
 	let { data } = $props();
 </script>
 
-<svelte:head>
-	<title>{data.title} - liam's blog</title>
-	<meta property="og:title" content={data.title} />
-	<meta name="description" property="og:description" content={data.description} />
-</svelte:head>
+<Metadata title="{data.title} - liam's blog" description={data.description} />
 
 <main>
 	<a class="mb-4 block link" href={resolve('/blog')}>&lt;-- back to blog</a>

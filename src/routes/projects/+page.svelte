@@ -1,16 +1,9 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import Metadata from '$lib/Metadata.svelte';
 </script>
 
-<svelte:head>
-	<title>my projects!</title>
-	<meta property="og:title" content="my projects!" />
-	<meta
-		name="description"
-		property="og:description"
-		content="some of the project i'd like to show off"
-	/>
-</svelte:head>
+<Metadata title="my projects" description="some of the project i'd like to show off" />
 
 <main class="w-full max-w-xl">
 	<h1 class="mb-8 text-4xl font-extrabold">projects</h1>
