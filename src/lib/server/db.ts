@@ -1,9 +1,8 @@
 import Database from 'better-sqlite3';
-import { env } from '$env/dynamic/private';
+import { DB_PATH } from '$app/env/private';
 import path from 'path';
 
-const dbPath = env.DB_PATH || '/data';
-const db = new Database(path.join(dbPath, 'site-data.db'));
+const db = new Database(path.join(DB_PATH, 'site-data.db'));
 
 db.exec(`
       CREATE TABLE IF NOT EXISTS hits (

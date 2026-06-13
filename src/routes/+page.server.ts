@@ -1,4 +1,4 @@
-import { incrementAndGetHits } from '$lib/db';
+import { incrementAndGetHits } from '$lib/server/db';
 
 export async function load() {
 	const hits = incrementAndGetHits();

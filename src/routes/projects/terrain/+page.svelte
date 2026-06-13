@@ -1,7 +1,7 @@
 <script lang="ts">
 	import init from './terrain_gen.js';
 	import Metadata from '$lib/Metadata.svelte';
-	import { browser } from '$app/environment';
+	import { browser } from '$app/env';
 
 	if (browser) {
 		init().then(() => {
