@@ -16,7 +16,7 @@
 />
 
 <main class="flex h-full w-full flex-col items-center">
-	<canvas class="h-[75dvh] w-full rounded-xl" id="canvas"></canvas>
+	<canvas class="h-[75svh] w-full rounded-xl" id="canvas"></canvas>
 	<!-- TODO: fix breakage when user leaves and reenters page in SPA -->
 	<p role="note" class="mt-4 text-taupe-500 italic dark:text-taupe-400">
 		if the above area is blank, try
