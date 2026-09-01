@@ -16,10 +16,11 @@
 />
 
 <main class="flex h-full w-full flex-col items-center">
-	<canvas class="h-full max-h-[75dvh] w-full rounded-xl" id="canvas"></canvas>
+	<canvas class="h-[75dvh] w-full rounded-xl" id="canvas"></canvas>
 	<!-- TODO: fix breakage when user leaves and reenters page in SPA -->
 	<p role="note" class="mt-4 text-taupe-500 italic dark:text-taupe-400">
-		if the above area is blank, try reloading!
+		if the above area is blank, try
+		<a href="/projects/terrain" class="link" data-sveltekit-reload>reloading!</a>
 	</p>
 	<article>
 		<h1 class="mt-4 mb-4 text-4xl font-extrabold">terrain generator</h1>
