@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { resolve } from '$app/paths';
 	import { formatDate } from 'date-fns';
-	import Metadata from '$lib/Metadata.svelte';
+	import Metadata from '#lib/Metadata.svelte';
 
 	let { data } = $props();
 </script>
@@ -9,7 +8,8 @@
 <Metadata title="{data.title} - liam's blog" description={data.description} />
 
 <main>
-	<a class="mb-4 block link" href={resolve('/blog')}>&lt;-- back to blog</a>
+	<a class="mb-4 block link" href="/blog">← back to blog</a>
+
 	<article class="prose text-justify hyphens-auto prose-taupe dark:prose-invert">
 		<header class="mb-4">
 			<h1 class="mb-2">{data.title}</h1>

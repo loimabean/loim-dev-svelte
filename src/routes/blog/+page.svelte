@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { resolve } from '$app/paths';
 	import { formatDate } from 'date-fns';
-	import Metadata from '$lib/Metadata.svelte';
+	import Metadata from '#lib/Metadata.svelte';
 
 	let { data } = $props();
 </script>
@@ -15,7 +14,7 @@
 	<ul class="w-full space-y-4">
 		{#each data.posts as post (post.slug)}
 			<li>
-				<a href={resolve(`/blog/${post.slug}`)} class="group card-link inline-block">
+				<a href="blog/{post.slug}" class="group inline-block card-link">
 					<p class="mb-2 text-sm text-taupe-500">
 						{formatDate(post.date, 'MMMM do, yyyy')}
 					</p>

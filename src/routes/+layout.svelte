@@ -1,9 +1,8 @@
 <script lang="ts">
 	import './layout.css';
 	import './fonts.css';
-	import favicon from '$lib/assets/favicon.svg';
-	import logo from '$lib/assets/loim-logo.webp';
-	import { resolve } from '$app/paths';
+	import favicon from '#lib/assets/favicon.svg';
+	import logo from '#lib/assets/loim-logo.webp';
 	import { page } from '$app/state';
 	import { crossfade, fly } from 'svelte/transition';
 	import { quintOut, cubicIn, cubicOut } from 'svelte/easing';
@@ -14,13 +13,16 @@
 	/* To prevent quirky page jumping during transition */
 	const FADE_OUT_MS = prefersReducedMotion.current ? 0 : 150;
 	const FADE_IN_MS = prefersReducedMotion.current ? 0 : 300;
-	afterNavigate(({ type }) => {
-		if (type !== 'popstate' && type !== 'enter') {
-			disableScrollHandling();
-			setTimeout(() => {
-				window.scrollTo({ top: 0, behavior: 'auto' });
-			}, FADE_OUT_MS);
+
+	afterNavigate(({ type, shallow }) => {
+		if (shallow || type === 'popstate' || type === 'enter') {
+			return;
 		}
+
+		disableScrollHandling();
+		setTimeout(() => {
+			window.scrollTo({ top: 0, behavior: 'auto' });
+		}, FADE_OUT_MS);
 	});
 	const [send, receive] = crossfade({ duration: FADE_OUT_MS + FADE_IN_MS, easing: quintOut });
 
@@ -28,7 +30,6 @@
 </script>
 
 {#snippet navlink(link: ResolvedPathname, label: string)}
-	<!-- eslint-disable svelte/no-navigation-without-resolve -- we resolve before giving to the <a> href -->
 	{@const isActive =
 		page.url.pathname.startsWith(link) && (link !== '/' || page.url.pathname === '/')}
 	<li class="relative block">
@@ -55,12 +56,12 @@
 	<nav
 		class="pointer-events-auto mx-2 max-w-full overflow-hidden rounded-full border-2 border-taupe-400/50 bg-taupe-200/50 text-base shadow-lg backdrop-blur-sm sm:text-lg dark:border-taupe-600/50 dark:bg-taupe-700/50"
 	>
-		<ul class="flex flex-row items-center gap-1 overflow-x-auto px-2 py-2 scrollbar-none">
-			{@render navlink(resolve('/'), 'home')}
-			{@render navlink(resolve('/about'), 'about')}
-			{@render navlink(resolve('/projects'), 'projects')}
-			{@render navlink(resolve('/blog'), 'blog')}
-			{@render navlink(resolve('/resume'), 'resume')}
+		<ul class="flex scrollbar-none flex-row items-center gap-1 overflow-x-auto px-2 py-2">
+			{@render navlink('/', 'home')}
+			{@render navlink('/about', 'about')}
+			{@render navlink('/projects', 'projects')}
+			{@render navlink('/blog', 'blog')}
+			{@render navlink('/resume', 'resume')}
 		</ul>
 	</nav>
 </div>

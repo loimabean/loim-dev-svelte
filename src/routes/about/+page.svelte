@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { resolve } from '$app/paths';
-	import Metadata from '$lib/Metadata.svelte';
+	import Metadata from '#lib/Metadata.svelte';
 
 	let { data } = $props();
 </script>
@@ -9,7 +8,7 @@
 
 <main>
 	<h1 class="mb-4 text-4xl font-extrabold">about</h1>
-	<article class="prose prose-taupe dark:prose-invert text-justify hyphens-auto">
+	<article class="prose text-justify hyphens-auto prose-taupe dark:prose-invert">
 		<h2>
 			i'm <strong class="text-amber-700 dark:text-amber-400">liam rust!</strong>
 			<span class="text-taupe-500 dark:text-taupe-400">(he/she/they)</span>
@@ -20,7 +19,7 @@
 		</p>
 		<figure class="flex flex-col items-center">
 			<enhanced:img
-				src="$lib/assets/me.jpg"
+				src="#lib/assets/me.jpg"
 				alt="A smiling androgynous person in a motorized wheelchair with their hand making a peace sign. They are wearing all orange. They have medium-long, dirty blonde hair, round gold glasses, and hexagon earrings."
 				class="w-lg rounded-xl"
 			/>
@@ -87,7 +86,7 @@
 				<!-- https://github.com/sveltejs/kit/issues/11017 -->
 				<div class="not-prose m-2 mt-4">
 					<enhanced:img
-						src="$lib/assets/clouddrop.jpg"
+						src="#lib/assets/clouddrop.jpg"
 						alt="Album cover for Clouddrop"
 						class="rounded-lg"
 					/>
@@ -97,7 +96,7 @@
 			<a href="https://flavorfoley.bandcamp.com/track/human" class="flex flex-col text-center">
 				<div class="not-prose m-2 mt-4">
 					<enhanced:img
-						src="$lib/assets/human.jpg"
+						src="#lib/assets/human.jpg"
 						alt="Album cover for Human"
 						class="rounded-lg"
 					/>
@@ -107,7 +106,7 @@
 			<a href="https://goodkid.bandcamp.com/track/cicada-2" class="flex flex-col text-center">
 				<div class="not-prose m-2 mt-4">
 					<enhanced:img
-						src="$lib/assets/cicada.jpg"
+						src="#lib/assets/cicada.jpg"
 						alt="Album cover for Cicada"
 						class="rounded-lg"
 					/>
@@ -138,9 +137,7 @@
 		<h3>more…</h3>
 		<p>
 			it's so hard to condense everything about myself to this about section. more will probably be
-			added as time goes on! and i'm sure more will also be on my <a href={resolve('/blog')}
-				>blog!</a
-			>
+			added as time goes on! and i'm sure more will also be on my <a href="blog">blog!</a>
 		</p>
 		<h2>what is this website?</h2>
 		<p>

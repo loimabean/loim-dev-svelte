@@ -40,7 +40,7 @@ function processPost(file: PostFile, slug: string, withContent: boolean): Post |
 }
 
 export async function getPost(slug: string): Promise<PostWithContent> {
-	const post: PostFile = await import(`$lib/posts/${slug}.md`);
+	const post: PostFile = await import(`./posts/${slug}.md`);
 
 	return processPost(post, slug, true);
 }
@@ -48,7 +48,7 @@ export async function getPost(slug: string): Promise<PostWithContent> {
 export async function getPosts(): Promise<Post[]> {
 	const posts: Post[] = [];
 
-	const paths = import.meta.glob<PostFile>('$lib/posts/*.md', { eager: true });
+	const paths = import.meta.glob<PostFile>('./posts/*.md', { eager: true });
 
 	for (const [filePath, file] of Object.entries(paths)) {
 		const slug = path.parse(filePath).name;

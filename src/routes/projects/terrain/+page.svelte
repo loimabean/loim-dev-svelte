@@ -1,6 +1,6 @@
 <script lang="ts">
 	import init from './terrain_gen.js';
-	import Metadata from '$lib/Metadata.svelte';
+	import Metadata from '#lib/Metadata.svelte';
 	import { browser } from '$app/env';
 
 	if (browser) {
@@ -15,15 +15,15 @@
 	description="a procedural terrain generator built using rust and wgpu, compiled to webassembly!"
 />
 
-<main class="h-full w-full flex flex-col items-center">
-	<canvas class="h-full w-full max-h-[75dvh] rounded-xl" id="canvas"></canvas>
+<main class="flex h-full w-full flex-col items-center">
+	<canvas class="h-full max-h-[75dvh] w-full rounded-xl" id="canvas"></canvas>
 	<!-- TODO: fix breakage when user leaves and reenters page in SPA -->
-	<p role="note" class="mt-4 text-taupe-500 dark:text-taupe-400 italic">
+	<p role="note" class="mt-4 text-taupe-500 italic dark:text-taupe-400">
 		if the above area is blank, try reloading!
 	</p>
 	<article>
 		<h1 class="mt-4 mb-4 text-4xl font-extrabold">terrain generator</h1>
-		<div class="prose prose-taupe dark:prose-invert text-justify hyphens-auto">
+		<div class="prose text-justify hyphens-auto prose-taupe dark:prose-invert">
 			<p>
 				This is a procedural terrain generator I built for <a
 					href="https://web.stevens.edu/catalog/archive/2024-2025/en/catalog/academic-catalog/courses/cs-computer-science/600/cs-677.html"

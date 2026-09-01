@@ -3,6 +3,9 @@ WORKDIR /app
 RUN mkdir /data
 RUN npm install -g --force corepack
 RUN corepack enable pnpm
+# for better-sqlite3's node-gyp
+RUN apk update
+RUN apk add python3 make
 
 COPY . .
 RUN pnpm install --frozen-lockfile
@@ -15,6 +18,9 @@ WORKDIR /app
 RUN mkdir /data
 RUN npm install -g --force corepack
 RUN corepack enable pnpm
+# for better-sqlite3's node-gyp
+RUN apk update
+RUN apk add python3 make
 
 COPY --from=builder /app/build ./build
 COPY --from=builder /app/package.json ./package.json

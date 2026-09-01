@@ -37,7 +37,7 @@ export default defineConfig({
 		enhancedImages(),
 		sveltekit({
 			adapter: adapter(),
-			experimental: { remoteFunctions: true, handleRenderingErrors: true },
+			experimental: { remoteFunctions: true },
 			compilerOptions: {
 				// Force runes mode for the project, except for libraries. Can be removed in svelte 6.
 				runes: ({ filename }) =>
